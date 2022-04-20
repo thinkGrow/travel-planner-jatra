@@ -362,7 +362,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
          <h3>contact info</h3>
          <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
          <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
-         <a style="text-transform: lowercase;" href="#"> <i class="fas fa-envelope"></i> rubaittasnim@gmail.com </a>
+         <a style="text-transform: lowercase;" href="#"> <i class="fas fa-envelope"></i> rubaitreshad@gmail.com </a>
          <a href="#"> <i class="fas fa-map"></i> IUB, Bashundhara, Dhaka </a>
       </div>
 
