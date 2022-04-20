@@ -40,7 +40,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
       <a href="about.php">about</a>
       <a href="package.php">package</a>
       <a href="book.php">book</a>
-      <a href="logout.php">log Out</a>
+      <a href="logout.php">logout</a>
    </nav>
 
    <div id="menu-btn" class="fas fa-bars"></div>
@@ -168,7 +168,7 @@ else
 ?>
       <div class="box">
          <h3>extra links</h3>
-         <a href="https://www.facebook.com/rubait"> <i class="fas fa-angle-right"></i> ask questions</a>
+         <a href="https://www.facebook.com/zarin.anisha.98> <i class="fas fa-angle-right"></i> ask questions</a>
          <a href="about.php"> <i class="fas fa-angle-right"></i> about us</a>
          <a href="#"> <i class="fas fa-angle-right"></i> privacy policy</a>
          <a href="#"> <i class="fas fa-angle-right"></i> terms of use</a>
@@ -178,17 +178,17 @@ else
          <h3>contact info</h3>
          <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
          <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
-         <a style="text-transform: lowercase;" href="#"> <i class="fas fa-envelope"></i> rubaitreshad@gmail.com </a>
+         <a style="text-transform: lowercase;" href="#"> <i class="fas fa-envelope"></i> rubaittasnim@gmail.com </a>
          <a href="#"> <i class="fas fa-map"></i> IUB, Bashundhara, Dhaka </a>
       </div>
 
       <div class="box">
-         <h3>follow us</h3>
-         <a href="https://www.facebook.com/rubait"> <i class="fab fa-facebook"></i> facebook </a>
-         <a href="https://www.twitter.com/rubait"> <i class="fab fa-twitter"></i> twitter </a>
-         <a href="https://www.instagram.com/reshad_rubait"> <i class="fab fa-instagram"></i> instagram </a>
-         <a href="https://github.com/thinkGrow"> <i class="fab fa-github"></i> linkedin </a>
-      </div>
+            <h3>follow us</h3>
+            <a href="https://www.facebook.com/zarin.anisha.98/"> <i class="fab fa-facebook"></i> facebook </a>
+            <a href="https://twitter.com/anisha_zarin> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="https://www.instagram.com/neighbourhoodholabilai/?hl=en> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="https://github.com/ZarinAnisha0912> <i class="fab fa-github"></i> linkedin </a>
+        </div>
 
    </div>
 
