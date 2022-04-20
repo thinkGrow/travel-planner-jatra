@@ -177,8 +177,8 @@ else
 
    <div class="content">
       <h3>about us</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita et, recusandae nobis fugit modi quibusdam ea assumenda, nulla quisquam repellat rem aliquid sequi maxime sapiente autem ipsum? Nobis, provident voluptate?</p>
-      <a href="about.php" class="btn">read more</a>
+      <p>Travel is a platform from where you can book your travel destinations. We provide the best prices for your desired destination with exiting packages.</p>
+      <a href="about.php" class="btn">Learn more</a>
    </div>
 
 </section>
