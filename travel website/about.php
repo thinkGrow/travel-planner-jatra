@@ -231,8 +231,9 @@ else
          <a href="package.php"> <i class="fas fa-angle-right"></i> package</a>
       </div>
 <?php
- }
+}
 ?>
+
       <div class="box">
          <h3>extra links</h3>
          <a href="https://www.facebook.com/rubait"> <i class="fas fa-angle-right"></i> ask questions</a>

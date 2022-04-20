@@ -121,11 +121,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
-<script>
-    $(document).ready(function() {
-        $('#userTable').DataTable();
-    });
-    </script>
 
 
     

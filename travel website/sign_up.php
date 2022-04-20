@@ -97,7 +97,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             // Password Hashing is used here. 
             $sql = "INSERT INTO `users` ( `username`, 
                 `password`,`confirm_password`,`name`,`phoneNo`,`email`,`address`,`role`) VALUES ('$username','$hash','$hash','$name','$phoneNo','$email','$address','User')";
-            echo $sql;
+            // echo $sql;
     
             $result = mysqli_query($link, $sql);
     

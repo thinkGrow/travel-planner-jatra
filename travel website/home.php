@@ -40,7 +40,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
       <a href="about.php">about</a>
       <a href="package.php">package</a>
       <a href="book.php">book</a>
-      <a href="logout.php">logout</a>
+      <a href="logout.php">log Out</a>
    </nav>
 
    <div id="menu-btn" class="fas fa-bars"></div>
@@ -193,11 +193,20 @@ else
   <div class="box-container1">
 
 <div class="row">
-<?php for($i=1;$i<9;$i++)
+<?php
+
+ require_once 'config1.php';
+ 
+ $stmt = $DB_con->prepare('SELECT * FROM tbl_image ORDER BY id DESC');
+ $stmt->execute();
+
+
+ while($row=$stmt->fetch(PDO::FETCH_ASSOC))
+ //for($i=1;$i<9;$i++)
 { ?>
   <div class="col-md-4" style="padding:10px;">
       <div class="image">
-      <img src="images/img-<?php echo $i?>.jpg" alt="" height="300" width="400">
+      <img src="images/<?php echo $row['image_location']?>.jpg" alt="" height="300" width="400">
    </div>
    <div class="content">
       <h3>adventure & tour</h3>
