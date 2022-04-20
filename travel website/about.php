@@ -1,3 +1,7 @@
+<?php
+// //Initialize the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,21 +24,48 @@
    
 <!-- header section starts  -->
 
+<?php
+// if log in true
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+?>
 <section class="header">
 
    <a href="home.php" class="logo">travel.</a>
 
    <nav class="navbar">
-      <a href="home.php">home</a>
+     <a href="home.php">home</a>
       <a href="about.php">about</a>
       <a href="package.php">package</a>
       <a href="book.php">book</a>
+      <a href="logout.php">log Out</a>
    </nav>
 
    <div id="menu-btn" class="fas fa-bars"></div>
 
 </section>
+<?php
+}
+// if log in false
+else
+{
+?> 
+<section class="header">
 
+<a href="home.php" class="logo">travel.</a>
+
+<nav class="navbar">
+  <a href="login.php">log in</a>
+  <a href="home.php">home</a>
+   <a href="about.php">about</a>
+   <a href="package.php">package</a>
+</nav>
+
+<div id="menu-btn" class="fas fa-bars"></div>
+
+</section>
+<?php
+}
+?>
 <!-- header section ends -->
 
 <div class="heading" style="background:url(images/header-bg-1.png) no-repeat">
@@ -171,24 +202,16 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- footer section starts  -->
 
 <section class="footer">
 
    <div class="box-container">
-
+     
+<?php
+// if log in true
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+?>
       <div class="box">
          <h3>quick links</h3>
          <a href="home.php"> <i class="fas fa-angle-right"></i> home</a>
@@ -197,6 +220,19 @@
          <a href="book.php"> <i class="fas fa-angle-right"></i> book</a>
       </div>
 
+<?php
+}
+else
+{ ?>
+   <div class="box">
+         <h3>quick links</h3>
+         <a href="home.php"> <i class="fas fa-angle-right"></i> home</a>
+         <a href="about.php"> <i class="fas fa-angle-right"></i> about</a>
+         <a href="package.php"> <i class="fas fa-angle-right"></i> package</a>
+      </div>
+<?php
+ }
+?>
       <div class="box">
          <h3>extra links</h3>
          <a href="https://www.facebook.com/rubait"> <i class="fas fa-angle-right"></i> ask questions</a>

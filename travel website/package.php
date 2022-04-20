@@ -8,7 +8,7 @@ session_start();
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>book</title>
+   <title>package</title>
 
    <!-- swiper css link  -->
    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
@@ -18,6 +18,9 @@ session_start();
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -68,61 +71,54 @@ else
 ?>
 <!-- header section ends -->
 
-<div class="heading" style="background:url(images/header-bg-3.png) no-repeat">
-   <h1>book now</h1>
+<div class="heading" style="background:url(images/header-bg-2.png) no-repeat">
+   <h1>packages</h1>
 </div>
 
-<!-- booking section starts  -->
+<!-- packages section starts  -->
 
-<section class="booking">
+<section class="packages">
 
-   <h1 class="heading-title">book your trip!</h1>
+   <h1 class="heading-title">top destinations</h1>
 
-   <form action="book_form.php" method="post" class="book-form">
+   <div class="box-container1">
 
-      <div class="flex">
-         <div class="inputBox">
-            <span>name :</span>
-            <input type="text" placeholder="enter your name" name="name">
+      <div class="row">
+    <?php for($i=1;$i<9;$i++)
+    { ?>
+        <div class="col-md-4" style="padding:10px;">
+            <div class="image">
+            <img src="images/img-<?php echo $i?>.jpg" alt="" height="300" width="400">
          </div>
-         <div class="inputBox">
-            <span>email :</span>
-            <input type="text" placeholder="enter your email" name="email">
+         <div class="content">
+            <h3>adventure & tour</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, perspiciatis!</p>
+            <?php
+            if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+               ?>
+            <a href="book.php" class="btn">book now</a>
+            <?php
+            }
+            else
+              {
+              ?>
+                <a href="login.php" class="btn">book now</a>
+              <?php
+            } 
+            ?>
          </div>
-         <div class="inputBox">
-            <span>phone :</span>
-            <input type="number" placeholder="enter your number" name="phone">
-         </div>
-         <div class="inputBox">
-            <span>address :</span>
-            <input type="text" placeholder="enter your address" name="address">
-         </div>
-         <div class="inputBox">
-            <span>Car Rent</span>
-            <input type="text" placeholder="Would you like to rent a car once you get here?" name="comment">
-         </div>
-         <div class="inputBox">
-            <span>how many :</span>
-            <input type="text" placeholder="number of guests" name="guests">
-         </div>
-         <div class="inputBox">
-            <span>arrivals :</span>
-            <input type="date" name="arrivals">
-         </div>
-         <div class="inputBox">
-            <span>leaving :</span>
-            <input type="date" name="leaving">
-         </div>
-      </div>
+        </div>
+   <?php }?>
+</div>
 
-      <input type="submit" value="submit" class="btn" name="send">
 
-   </form>
+
+
+   
 
 </section>
 
-<!-- booking section ends -->
-
+<!-- packages section ends -->
 
 
 
