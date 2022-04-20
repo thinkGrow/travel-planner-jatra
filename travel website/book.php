@@ -37,7 +37,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
       <a href="about.php">about</a>
       <a href="package.php">package</a>
       <a href="book.php">book</a>
-      <a href="logout.php">log Out</a>
+      <a href="logout.php">logout</a>
    </nav>
 
    <div id="menu-btn" class="fas fa-bars"></div>
