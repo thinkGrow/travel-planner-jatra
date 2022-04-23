@@ -97,7 +97,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             // Password Hashing is used here. 
             $sql = "INSERT INTO `users` ( `username`, 
                 `password`,`confirm_password`,`name`,`phoneNo`,`email`,`address`,`role`) VALUES ('$username','$hash','$hash','$name','$phoneNo','$email','$address','User')";
-            // echo $sql;
+            echo $sql;
     
             $result = mysqli_query($link, $sql);
     
@@ -196,20 +196,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
    </style>
    <head>
  
-  <!-- First include jquery js -->
-<script src="js/jquery-1.12.0.min.js"></script>
-<script src="js/jquery-migrate-1.2.1.min.js"></script>
+        <!-- First include jquery js -->
+        <script src="js/jquery-1.12.0.min.js"></script>
+        <script src="js/jquery-migrate-1.2.1.min.js"></script>
 
-<!-- Then include bootstrap js -->
-<script src="js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-  <script src="js/bootstrap.min.js"></script>
-  <!-- font awesome cdn link  -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <!-- Then include bootstrap js -->
+        <script src="js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="js/bootstrap.min.js"></script>
+        <!-- font awesome cdn link  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-   <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
-</head>
+        <!-- custom css file link  -->
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- icon -->
+        <link rel = "icon" type = "image/png" href = "images/icon.jpeg">
+
+        <title>Sign Up</title>
+    </head>
 <body>
     <!-- header section starts  -->
 
@@ -244,7 +249,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                                 <label for="input"><b><font size="2px" style="color:black;padding-left:25px;">Username</font></b></label><br>
                               </div>
                               <div class="col-md-8 mt-1">
-                                 <input type="text" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" id="username" name = "username" value="<?php echo $username;?>" required/>
+                                 <input style="text-transform: none;" type="text" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" id="username" name = "username" value="<?php echo $username;?>" required/>
                                  <span class="invalid-feedback"><?php echo $username_err; ?></span>
                               
                               </div>
@@ -257,7 +262,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                             <label for="input"><b><font size="2px" style="color:black;padding-left:25px;">Password</font></b></label><br>
                           </div>
                           <div class="col-md-8 mt-1">
-                             <input type="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" id="password" name = "password" value="<?php echo $password; ?>" required/>
+                             <input style="text-transform: none;" type="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" id="password" name = "password" value="<?php echo $password; ?>" required/>
                              <span class="invalid-feedback"><?php echo $password_err; ?></span>
                           
                           </div>
@@ -267,10 +272,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                      <div class="row">
                         <div class="col-md-12 form-group row mt-4">
                           <div class="col-md-4 mb-4 mb-sm-0">
-                            <label for="input"><b><font size="2px" style="color:black;padding-left:15px;">Confirm Password</font></b></label><br>
+                            <label for="input"><b><font size="1px" style="color:black;padding-left:15px;">Confirm Password</font></b></label><br>
                           </div>
                           <div class="col-md-8 mt-1">
-                             <input type="password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" id="confirm_password" name = "confirm_password" value="<?php echo $confirm_password; ?>" required/>
+                             <input style="text-transform: none;" type="password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" id="confirm_password" name = "confirm_password" value="<?php echo $confirm_password; ?>" required/>
                              <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
                           
                           </div>
@@ -283,7 +288,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                             <label for="input"><b><font size="2px" style="color:black;padding-left:25px;">Name</font></b></label><br>
                           </div>
                           <div class="col-md-8 mt-1">
-                             <input type="text" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>" id="name" name = "name" value="<?php echo $name;?>" required/>
+                             <input style="text-transform: none;" type="text" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>" id="name" name = "name" value="<?php echo $name;?>" required/>
                              <span class="invalid-feedback"><?php echo $name_err; ?></span>
                           
                           </div>
@@ -296,7 +301,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                             <label for="input"><b><font size="2px" style="color:black;padding-left:25px;">Phone No</font></b></label><br>
                           </div>
                           <div class="col-md-8 mt-1">
-                             <input type="text" class="form-control <?php echo (!empty($phoneNo_err)) ? 'is-invalid' : ''; ?>" id="phoneNo" name = "phoneNo" value="<?php echo $phoneNo;?>" required/>
+                             <input style="text-transform: none;" type="text" class="form-control <?php echo (!empty($phoneNo_err)) ? 'is-invalid' : ''; ?>" id="phoneNo" name = "phoneNo" value="<?php echo $phoneNo;?>" required/>
                              <span class="invalid-feedback"><?php echo $phoneNo_err; ?></span>
                           
                           </div>
@@ -306,10 +311,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                     <div class="row">
                         <div class="col-md-12 form-group row mt-4">
                           <div class="col-md-4 mb-4 mb-sm-0">
-                            <label for="input"><b><font size="2px" style="color:black;padding-left:25px;">Email Address</font></b></label><br>
+                            <label for="input"><b><font size="1px" style="color:black;padding-left:25px;">Email Address</font></b></label><br>
                           </div>
                           <div class="col-md-8 mt-1">
-                             <input type="text" class="form-control" id="email" name = "email" value="<?php echo $email;?>" required/> 
+                             <input style="text-transform: none;" type="text" class="form-control" id="email" name = "email" value="<?php echo $email;?>" required/> 
                           </div>
                         </div>
                     </div>
@@ -320,15 +325,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                             <label for="input"><b><font size="2px" style="color:black;padding-left:25px;">Address</font></b></label><br>
                           </div>
                           <div class="col-md-8 mt-1">
-                             <input type="text" class="form-control" id="address" name = "address" value="<?php echo $address;?>" required/>
+                             <input style="text-transform: none;" type="text" class="form-control" id="address" name = "address" value="<?php echo $address;?>" required/>
                            </div>
                         </div>
                     </div>
 
                     <br>
                     <div class="form-group" style="padding-left:160px;">
-                       <input style="width:30%;background: linear-gradient(to right, #6699ff, #99ccff); color: black;border-radius: 7%;" type="submit" class="btn btn-primary" value="Submit">
-                       <input style="width:30%;background: linear-gradient(to right, #6699ff, #99ccff); color: black;border-radius: 7%;" type="reset" class="btn btn-secondary ml-2" value="Reset">
+                       <input style="width:40%;background: linear-gradient(to right, #6699ff, #99ccff); color: black;border-radius: 7%;" type="submit" class="btn btn-primary" value="Submit">
+                       <input style="width:40%;background: linear-gradient(to right, #6699ff, #99ccff); color: black;border-radius: 7%;" type="reset" class="btn btn-secondary ml-2" value="Reset">
                     </div>
                     <p style="padding-left: 150px">Already have an account? <a style="color: #6699ff;" href="login.php">Login here</a>.</p>
                 </form>

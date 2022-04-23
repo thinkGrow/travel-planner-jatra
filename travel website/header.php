@@ -2,14 +2,17 @@
 <html lang="en">
     <head>
 
-        <title>Add, Edit, Delete In PHP/MySQL Using PDO</title>
+        
 
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
      
         <link rel="stylesheet" type="text/css" href="css/DT_bootstrap.css">
 		
         <link href="modal/css1/bootstrap1.css" rel="stylesheet" type="text/css" media="screen">
-     
+
+        <!-- icon -->
+        <link rel = "icon" type = "image/png" href = "images/icon.jpeg">
+        
 
 
 </head>

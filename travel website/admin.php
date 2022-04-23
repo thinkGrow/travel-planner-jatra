@@ -1,4 +1,45 @@
-<?php include('header.php'); ?>
+<?php include('header.php'); 
+// //Initialize the session
+session_start();
+$role=$_SESSION["role"];
+if($role!='Admin')
+{	
+?>
+<title>Admin Panel</title>
+<style>
+        .wrapper{
+            width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            font-family: "Georgia", Times, serif;
+            padding-top: 35px;
+
+
+        }
+
+    </style>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+<div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                <div class="alert alert-danger">
+                            <p>You do not have access to this page.</p>
+                        </div>
+                </div>
+            </div>        
+        </div>
+    </div>
+
+
+<?php
+exit; 
+} 
+
+
+   ?>
 <body>
 
 
@@ -9,14 +50,14 @@
          
 
             <div class="container">
-			
+			<br>
+			<br>
+			<a class="btn btn-primary" href="home.php" target="_blank">Back</a>
 <?php include ('modal_add.php'); ?>
+<h1 style="text-align: center;color:#3399ff;">Admin Panel</h1>
 
                         <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
-                            <div class="alert alert-info">
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                <strong><i class="icon-user icon-large"></i>&nbsp;Data Table</strong>
-                            </div>
+                            
                             <thead>
                                 <tr>
                                     <th style="text-align:center;">Image</th>

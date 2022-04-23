@@ -1,4 +1,43 @@
-	    <!-- Button to trigger modal -->
+<?php
+// //Initialize the session
+session_start();
+$role=$_SESSION["role"];
+if($role!='Admin')
+{	
+?>
+<style>
+        .wrapper{
+            width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            font-family: "Georgia", Times, serif;
+            padding-top: 35px;
+
+
+        }
+
+    </style>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+<div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                <div class="alert alert-danger">
+                            <p>You do not have access to this page.</p>
+                        </div>
+                </div>
+            </div>        
+        </div>
+    </div>
+
+
+<?php
+exit; 
+} 
+?>
+   <!-- Button to trigger modal -->
     <a class="btn btn-primary" href="#myModal" data-toggle="modal">Click Here To Add</a>
 	<br>
 	<br>

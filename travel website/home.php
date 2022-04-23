@@ -8,7 +8,10 @@ session_start();
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>home</title>
+   <title>Home</title>
+
+   <!-- icon -->
+   <link rel = "icon" type = "image/png" href = "images/icon.jpeg">
 
    <!-- swiper css link  -->
    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
@@ -18,12 +21,14 @@ session_start();
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
+
    
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </head>
+
 <body>
    
 <!-- header section starts  -->
@@ -33,13 +38,31 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 ?>
 <section class="header">
 
-   <a href="home.php" class="logo">travel.</a>
+   <a href="home.php" class="logo">|যাত্রা|</a>
+   <div style="text-align: center;font-size:25px;font-weight:bold;"><?php echo htmlspecialchars($_SESSION["username"]); ?></div>
+
 
    <nav class="navbar">
      <a href="home.php">home</a>
       <a href="about.php">about</a>
       <a href="package.php">package</a>
-      <a href="book.php">book</a>
+      <?php 
+    $role=$_SESSION["role"];
+    if($role=='Admin')
+     { 	
+    ?>
+       <a href="book.php">Book</a>
+      <a href="bookList.php">Booking List</a>
+      <a href="admin.php">Admin Panel</a>
+      <?php
+      }
+      else
+      {
+      ?>
+      <a href="book.php">Book</a>
+      <?php   
+      }
+      ?>
       <a href="logout.php">log Out</a>
    </nav>
 
@@ -54,7 +77,7 @@ else
 ?> 
 <section class="header">
 
-<a href="home.php" class="logo">travel.</a>
+<a href="home.php" class="logo">|যাত্রা|</a>
 
 <nav class="navbar">
   <a href="login.php">login</a>
@@ -80,23 +103,23 @@ else
 
       <div class="swiper-wrapper">
 
-         <div class="swiper-slide slide" style="background:url(images/home-slide-1.jpg) no-repeat">
+         <div class="swiper-slide slide" style="background:url(images/bd.jpg) no-repeat">
             <div class="content">
                <span>explore, discover, travel</span>
                <h3 style="text-transform: capitalize;">Hi,
                <?php
             if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
                ?>
-              <b><?php echo htmlspecialchars($_SESSION["name"]); ?></b>.<br>
+              <b><?php echo htmlspecialchars($_SESSION["name"]); ?></b><br>
               <?php
                 }
                ?>
-               travel arround the world</h3>
+               Discover Bangladesh</h3>
                <a href="package.php" class="btn">discover more</a>
             </div>
          </div>
 
-         <div class="swiper-slide slide" style="background:url(images/home-slide-2.jpg) no-repeat">
+         <div class="swiper-slide slide" style="background:url(images/bandarban.jpeg) no-repeat">
             <div class="content">
                <span>explore, discover, travel</span>
                <h3>discover the new places</h3>
@@ -104,7 +127,7 @@ else
             </div>
          </div>
 
-         <div class="swiper-slide slide" style="background:url(images/home-slide-3.jpg) no-repeat">
+         <div class="swiper-slide slide" style="background:url(images/coxsbazarcover.jpeg) no-repeat">
             <div class="content">
                <span>explore, discover, travel</span>
                <h3>make your tour worthwhile</h3>
@@ -172,13 +195,14 @@ else
 <section class="home-about">
 
    <div class="image">
-      <img src="images/about-img.jpg" alt="">
+      <img style="border-radius: 3%;" src="images/makersmania.jpeg" alt="">
    </div>
 
    <div class="content">
       <h3>about us</h3>
-      <p>Travel is a platform from where you can book your travel destinations. We provide the best prices for your desired destination with exiting packages.</p>
-      <a href="about.php" class="btn">Learn more</a>
+      <p>To Travel Is To Live</p>
+      <p>Jatra started off as a friend circle of few people from the Engineering Deptartment who started going to tours and ended up making a business out of it.</p>
+      <a href="about.php" class="btn">read more</a>
    </div>
 
 </section>
@@ -190,45 +214,42 @@ else
 <section class="home-packages">
 
    <h1 class="heading-title"> our packages </h1>
-  <div class="box-container1">
 
-<div class="row">
-<?php
-
- require_once 'config1.php';
- 
- $stmt = $DB_con->prepare('SELECT * FROM tbl_image ORDER BY id DESC');
- $stmt->execute();
-
-
- while($row=$stmt->fetch(PDO::FETCH_ASSOC))
- //for($i=1;$i<9;$i++)
-{ ?>
-  <div class="col-md-4" style="padding:10px;">
-      <div class="image">
-      <img src="images/<?php echo $row['image_location']?>.jpg" alt="" height="300" width="400">
-   </div>
-   <div class="content">
-      <h3>adventure & tour</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, perspiciatis!</p>
+   <div class="row">
       <?php
-      if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-         ?>
-      <a href="book.php" class="btn">book now</a>
+         require_once('db.php');
+         $result = $conn->prepare("SELECT * FROM tbl_image ORDER BY tbl_image_id ASC");
+         $result->execute();
+         for($i=0; $row = $result->fetch(); $i++){
+               $id=$row['tbl_image_id'];
+      ?>
+
+            <div class="col-md-4" ">
+ 
+               <div class="image"> 
+                  <img src="images/<?php echo $row['image_location']?>" alt="" height="300" width="375" style="border-radius:10px ;  box-shadow : 1px 1px;"> 
+               </div>
+
+                  <div class="content">
+                     <h3><?php echo $row ['package_name'];?></h3>
+                     <p><?php echo $row['package_details'];?></p>
+                     <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)
+                           { ?>
+                              <a href="book.php" class="btn">book now</a>
+                              <?php
+                           }
+                           else
+                           {?>
+                              <a href="login.php" class="btn">book now</a>
+                           <?php
+                           } 
+                     ?>
+                  </div>
+            </div>
       <?php
       }
-      else
-        {
-        ?>
-          <a href="login.php" class="btn">book now</a>
-        <?php
-      } 
       ?>
    </div>
-  </div>
-<?php }?>
-</div>
-
 
 </section>
 
@@ -239,7 +260,7 @@ else
 <section class="home-offer">
    <div class="content">
       <h3>upto 50% off</h3>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure tempora assumenda, debitis aliquid nesciunt maiores quas! Magni cumque quaerat saepe!</p>
+      <p>Offer applied for students only</p>
       <?php
             if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
                ?>

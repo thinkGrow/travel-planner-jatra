@@ -102,7 +102,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Log In</title>
+
+    <!-- icon -->
+    <link rel = "icon" type = "image/png" href = "images/icon.jpeg">
     <!-- First include jquery js -->
 <script src="js/jquery-1.12.0.min.js"></script>
 <script src="js/jquery-migrate-1.2.1.min.js"></script>
@@ -121,6 +124,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
+<script>
+    $(document).ready(function() {
+        $('#userTable').DataTable();
+    });
+    </script>
 
 
     
@@ -147,7 +155,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <section class="header">
 
-   <a href="home.php" class="logo">travel.</a>
+   <a href="home.php" class="logo">|যাত্রা|</a>
 
    <nav class="navbar">
       <a href="home.php">home</a>
@@ -184,7 +192,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                   <label for="input"><b><font size="2px" style="color:black;padding-left:25px;">Username</font></b></label><br>
                                 </div>
                                 <div class="col-md-6 mt-1">
-                                  <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username;?>"/>
+                                  <input style="text-transform: none;" type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username;?>"/>
                                   <span class="invalid-feedback"><?php echo $username_err; ?></span>
                               
                                 </div>
@@ -197,8 +205,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                   <label for="input"><b><font size="2px" style="color:black;padding-left:25px;">Password</font></b></label><br>
                                 </div>
                                 <div class="col-md-6 mt-1">
-                                  <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>"/>
-                                  <span class="invalid-feedback"><?php echo $username_err; ?></span>
+                                  <input style="text-transform: none;" type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>"/>
+                                  <span class="invalid-feedback"><?php echo $password_err; ?></span>
                               
                                 </div>
                                </div>

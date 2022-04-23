@@ -8,7 +8,9 @@ session_start();
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>package</title>
+   <title>Package</title>
+   <!-- icon -->
+   <link rel = "icon" type = "image/png" href = "images/icon.jpeg">
 
    <!-- swiper css link  -->
    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
@@ -21,6 +23,7 @@ session_start();
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <script src="js/script.js"></script>
 
 </head>
 <body>
@@ -33,13 +36,30 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 ?>
 <section class="header">
 
-   <a href="home.php" class="logo">travel.</a>
+   <a href="home.php" class="logo">|যাত্রা|</a>
+   <div style="text-align: center;font-size:25px;font-weight:bold;"><?php echo htmlspecialchars($_SESSION["username"]); ?></div>
 
    <nav class="navbar">
      <a href="home.php">home</a>
       <a href="about.php">about</a>
       <a href="package.php">package</a>
-      <a href="book.php">book</a>
+      <?php 
+    $role=$_SESSION["role"];
+    if($role=='Admin')
+     { 	
+    ?>
+       <a href="book.php">Book</a>
+      <a href="bookList.php">Booking List</a>
+      <a href="admin.php">Admin Panel</a>
+      <?php
+      }
+      else
+      {
+      ?>
+      <a href="book.php">Book</a>
+      <?php   
+      }
+      ?>
       <a href="logout.php">log Out</a>
    </nav>
 
@@ -54,7 +74,8 @@ else
 ?> 
 <section class="header">
 
-<a href="home.php" class="logo">travel.</a>
+<a href="home.php" class="logo">|যাত্রা|</a>
+
 
 <nav class="navbar">
   <a href="login.php">log in</a>
@@ -81,36 +102,40 @@ else
 
    <h1 class="heading-title">top destinations</h1>
 
-   <div class="box-container1">
 
-      <div class="row">
-    <?php for($i=1;$i<9;$i++)
-    { ?>
-        <div class="col-md-4" style="padding:10px;">
-            <div class="image">
-            <img src="images/img-<?php echo $i?>.jpg" alt="" height="300" width="400">
+   <div class="row">
+<?php
+require_once('db.php');
+$result = $conn->prepare("SELECT * FROM tbl_image ORDER BY tbl_image_id ASC");
+$result->execute();
+for($i=0; $row = $result->fetch(); $i++){
+$id=$row['tbl_image_id'];
+?>
+		<div class="col-md-4" style="padding:10px;">
+         <div class="image"> 
+            <img src="images/<?php echo $row['image_location']?>" alt="" height="300" width="375" style="border-radius:10px ;  box-shadow : 1px 1px;"> 
          </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, perspiciatis!</p>
-            <?php
-            if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-               ?>
-            <a href="book.php" class="btn">book now</a>
-            <?php
-            }
-            else
-              {
-              ?>
-                <a href="login.php" class="btn">book now</a>
-              <?php
-            } 
-            ?>
-         </div>
-        </div>
-   <?php }?>
-</div>
-
+   <div class="content">
+      <h3><?php echo $row ['package_name'];?></h3>
+      <p><?php echo $row['package_details'];?></p>
+      <?php
+      if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+         ?>
+      <a href="book.php" class="btn">book now</a>
+      <?php
+      }
+      else
+        {
+        ?>
+          <a href="login.php" class="btn">book now</a>
+        <?php
+      } 
+      ?>
+   </div>
+  </div>
+  <?php
+}
+?>
 
 
 

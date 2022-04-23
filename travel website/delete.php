@@ -8,5 +8,5 @@ $sql = "Delete from tbl_image where tbl_image_id = '$get_id'";
 
 // use exec() because no results are returned
 $conn->exec($sql);
-header('location:index.php');
+header('location:admin.php');
 ?>
