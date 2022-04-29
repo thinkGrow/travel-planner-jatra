@@ -8,7 +8,10 @@ session_start();
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>about</title>
+   <title>About</title>
+
+   <!-- icon -->
+   <link rel = "icon" type = "image/png" href = "images/icon.jpeg">
 
    <!-- swiper css link  -->
    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
@@ -30,13 +33,31 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 ?>
 <section class="header">
 
-   <a href="home.php" class="logo">travel.</a>
+   <a href="home.php" class="logo">|যাত্রা|</a>
+   <div style="text-align: center;font-size:25px;font-weight:bold;"><?php echo htmlspecialchars($_SESSION["username"]); ?> </div>
+
 
    <nav class="navbar">
      <a href="home.php">home</a>
       <a href="about.php">about</a>
       <a href="package.php">package</a>
-      <a href="book.php">book</a>
+      <?php 
+    $role=$_SESSION["role"];
+    if($role=='Admin')
+     { 	
+    ?>
+       <a href="book.php">Book</a>
+      <a href="bookList.php">Booking List</a>
+      <a href="admin.php">Admin Panel</a>
+      <?php
+      }
+      else
+      {
+      ?>
+      <a href="book.php">Book</a>
+      <?php   
+      }
+      ?>
       <a href="logout.php">log Out</a>
    </nav>
 
@@ -51,7 +72,7 @@ else
 ?> 
 <section class="header">
 
-<a href="home.php" class="logo">travel.</a>
+<a href="home.php" class="logo">|যাত্রা|</a>
 
 <nav class="navbar">
   <a href="login.php">log in</a>
@@ -77,13 +98,14 @@ else
 <section class="about">
 
    <div class="image">
-      <img src="images/about-img.jpg" alt="">
+      <img style="border-radius: 3%;" src="images/makersmania.jpeg" alt="">
    </div>
 
    <div class="content">
       <h3>why choose us?</h3>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure numquam nulla iusto corporis dolor commodi libero, vitae obcaecati optio rerum ab culpa nesciunt, earum mollitia quasi ipsam non. Aliquid, iure.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid rerum, delectus voluptate aliquam quaerat iusto repellendus error nulla ab atque.</p>
+      <p>To Travel Is To Live</p>
+      <p>Jatra started off as a friend's circle of few people from the Engineering Dept who started going to tours and ended up making a business out of it. </p>
+      <p>We offer packages for Cox's Bazar, Sundarban, Bandarban and plan to expand to all over Bangladesh. Best believe.</p>
       <div class="icons-container">
          <div class="icons">
             <i class="fas fa-map"></i>
@@ -114,7 +136,7 @@ else
 
       <div class="swiper-wrapper">
 
-         <div class="swiper-slide slide">
+      <div class="swiper-slide slide">
             <div class="stars">
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
@@ -122,10 +144,13 @@ else
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
             </div>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus facilis laudantium magnam saepe magni ullam possimus laborum voluptas, veniam ipsum officiis quae doloribus minima ut quis. Molestiae qui distinctio possimus?</p>
-            <h3>john deo</h3>
-            <span>traveler</span>
-            <img src="images/pic-1.png" alt="">
+            <p>I could care less about the views or the accomodation.
+               I don't think none of this comes close to the love I have for C++. Perhaps my spouse? Perhaps, perhaps.
+               But I am not going to lie, I did have a good time writing code in this vacation. 5 star.
+            </p>
+            <h3>Romasa Qasim</h3>
+            <span>Lecturer, IUB</span>
+            <img src="images/RomasaQasim.jpeg" alt="">
          </div>
 
          <div class="swiper-slide slide">
@@ -135,10 +160,12 @@ else
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
             </div>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus repellendus et suscipit optio similique totam aut laborum ullam sequi! In!</p>
-            <h3>john deo</h3>
-            <span>traveler</span>
-            <img src="images/pic-2.png" alt="">
+             <p>Good value package but quite excruciating to book. Had to keep going backwards and forwards 
+                selecting different dates and rooms to see which were included in the "Cox's Bazar" package 
+                as this wasn't immediately discernible.</p>
+            <h3>Dr. Mahady Hasan</h3>
+            <span>Associate Professor, IUB</span>
+            <img src="images/MahadyHasan.jpeg" alt="">
          </div>
 
          <div class="swiper-slide slide">
@@ -147,10 +174,12 @@ else
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
             </div>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus enim deserunt, ab at ea iste odio placeat doloribus eum dolores tempore obcaecati, dolore esse aperiam. Excepturi ad quo distinctio, dignissimos voluptate, dolores, saepe animi eum atque sint esse ab exercitationem!</p>
-            <h3>john deo</h3>
-            <span>traveler</span>
-            <img src="images/pic-3.png" alt="">
+            <p>Deals always tend to be hard to beat on travel online. We've booked with them for years for this 
+               reason. On this occasion, it did not take a while. They were pretty co-operative and always responded
+               to calls. Overall I would book again.</p>
+            <h3>Sanzar Adnan Alam</h3>
+            <span>Lecturer, IUB</span>
+            <img src="images/SanzarAdnan.jpeg" alt="">
          </div>
 
          <div class="swiper-slide slide">
@@ -161,22 +190,13 @@ else
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
             </div>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus recusandae cum quibusdam odio dignissimos nemo?</p>
-            <h3>john deo</h3>
-            <span>traveler</span>
-            <img src="images/pic-4.png" alt="">
-         </div>
-
-         <div class="swiper-slide slide">
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-            </div>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus facilis laudantium magnam saepe magni ullam possimus laborum voluptas, veniam ipsum officiis quae doloribus minima ut quis. Molestiae qui distinctio possimus?</p>
-            <h3>john deo</h3>
-            <span>traveler</span>
-            <img src="images/pic-5.png" alt="">
+            <p>I could care less about the views or the accomodation.
+               I don't think none of this comes close to the love I have for Java. Perhaps my spouse? Perhaps, perhaps.
+               But I am not going to lie, I did have a good time writing in java in this vacation. 
+            </p>
+            <h3>Subrata Kumar Dey</h3>
+            <span>Lecturer, IUB</span>
+            <img src="images/SKD.jpeg" alt="">
          </div>
 
          <div class="swiper-slide slide">
@@ -185,12 +205,17 @@ else
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
+               <i class="fas fa-star"></i>
             </div>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus facilis laudantium magnam saepe magni ullam possimus laborum voluptas, veniam ipsum officiis quae doloribus minima ut quis. Molestiae qui distinctio possimus?</p>
-            <h3>john deo</h3>
-            <span>traveler</span>
-            <img src="images/pic-6.png" alt="">
+            <p>I could care less about the views or the accomodation.
+               I don't think none of this comes close to the love I have for C++. Perhaps my spouse? Perhaps, perhaps.
+               But I am not going to lie, I did have a good time writing code in this vacation. 5 star.
+            </p>
+            <h3>Romasa Qasim</h3>
+            <span>Lecturer, IUB</span>
+            <img src="images/RomasaQasim.jpeg" alt="">
          </div>
+
 
       </div>
 
@@ -231,9 +256,8 @@ else
          <a href="package.php"> <i class="fas fa-angle-right"></i> package</a>
       </div>
 <?php
-}
+ }
 ?>
-
       <div class="box">
          <h3>extra links</h3>
          <a href="https://www.facebook.com/rubait"> <i class="fas fa-angle-right"></i> ask questions</a>
