@@ -2,7 +2,7 @@
 
 A web app project implementing the complete web solution to a travel booking website.
 
-**Demo video : https://drive.google.com/drive/folders/1H128amXus45ljAtukxPBzmdnnuHFlZnc?usp=sharing **
+**Demo video for & Screenshots : https://drive.google.com/drive/folders/1H128amXus45ljAtukxPBzmdnnuHFlZnc?usp=sharing **
 
 1721088 Md Rubaut Reshed Chowdhury.   
 1731638 Zarin Tasnim. 
